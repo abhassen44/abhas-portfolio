@@ -1,7 +1,8 @@
 "use client"
 
 import { useState, useEffect, ReactNode, ElementType } from "react"
-import { Github, ExternalLink, Brain, Globe, Star, ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react"
+import { Github, ExternalLink, Brain, Globe, Star, ChevronLeft, ChevronRight, ArrowUpRight, Pen, PenBoxIcon } from "lucide-react"
+import { link } from "fs"
 
 const projects = [
   {
@@ -11,7 +12,7 @@ const projects = [
     icon: Brain,
     technologies: ["LangGraph", "RAG", "LLMs", "Python"],
     highlights: ["Voice-enabled coding assistant", "RAG implementation on PDFs"],
-    github: "#",
+    github: "https://github.com/abhassen44/gen-ai",
     live: "#",
     gradient: "from-primary/20 via-secondary/20 to-accent/20",
     accent: "from-primary to-secondary",
@@ -23,8 +24,8 @@ const projects = [
     icon: Globe,
     technologies: ["React", "Tailwind", "MongoDB", "Express"],
     highlights: ["Dynamic GSAP animations", "Event management system"],
-    github: "#",
-    live: "#",
+    github: "https://github.com/abhassen44/technocrat",
+    live: "https://technocrats.locksync.org/",
     gradient: "from-secondary/20 via-accent/20 to-primary/20",
     accent: "from-secondary to-accent",
   },
@@ -35,46 +36,34 @@ const projects = [
     icon: Star,
     technologies: ["Next.js", "TypeScript", "MongoDB", "JWT"],
     highlights: ["AI-powered review generation", "Server actions with routing"],
-    github: "#",
+    github: "https://github.com/abhassen44/review-app",
     live: "#",
     gradient: "from-accent/20 via-primary/20 to-secondary/20",
     accent: "from-accent to-primary",
   },
   {
-    title: "E-Commerce Platform",
+    title: "locksync",
     description:
-      "Full-stack e-commerce solution with payment integration, inventory management, and advanced analytics dashboard.",
-    icon: Star,
-    technologies: ["React", "Node.js", "Stripe", "PostgreSQL"],
-    highlights: ["Payment gateway integration", "Real-time analytics"],
-    github: "#",
-    live: "#",
-    gradient: "from-primary/20 via-accent/20 to-secondary/20",
-    accent: "from-primary to-accent",
-  },
-  {
-    title: "Blockchain DApp",
-    description:
-      "Decentralized application built on Ethereum with smart contracts for NFT marketplace and token staking.",
-    icon: Brain,
-    technologies: ["Solidity", "Web3.js", "React", "Hardhat"],
-    highlights: ["Smart contract development", "NFT marketplace"],
-    github: "#",
-    live: "#",
-    gradient: "from-secondary/20 via-primary/20 to-accent/20",
-    accent: "from-secondary to-primary",
-  },
-  {
-    title: "Mobile Health App",
-    description: "Cross-platform health monitoring app with AI-powered symptom analysis and telemedicine integration.",
+      "project for a startup focused on simplifying the process of managing access to a shared space.",
     icon: Globe,
-    technologies: ["React Native", "Firebase", "TensorFlow", "AWS"],
-    highlights: ["AI symptom analysis", "Telemedicine integration"],
-    github: "#",
-    live: "#",
-    gradient: "from-accent/20 via-secondary/20 to-primary/20",
-    accent: "from-accent to-secondary",
+    technologies: ["react.js", "Tailwind CSS", "GSAP","Node.js", "Express", "MongoDB"],
+    highlights: ["Smooth animations", "Responsive design"],
+    github: "https://github.com/abhassen44/locksync1",
+    live: "https://locksync1.vercel.app/",
+    gradient: "from-primary/20 via-secondary/20 to-accent/20",
+    accent: "from-primary to-secondary",
   },
+  {
+    title : "excalidraw",
+    description: "A collaborative whiteboard tool that lets you easily sketch diagrams with others.",
+    icon: PenBoxIcon,
+    technologies: ["React", "TypeScript", "Excalidraw","websockets","turbo-repo"],
+    highlights: ["Real-time collaboration", "Intuitive drawing tools"],
+    github: "https://github.com/abhassen44/excalidraw",
+    live: "https://excalidraw-clone.vercel.app/",
+    gradient: "from-secondary/20 via-accent/20 to-primary/20",
+    accent: "from-secondary to-accent",
+  }
 ]
 
 interface CardContainerProps {
@@ -93,6 +82,12 @@ const CardContainer = ({ children, className = "" }: CardContainerProps) => {
       {children}
     </div>
   )
+}
+
+const linkToProject = (url: string) => {
+  if (url) {
+    window.open(url, "_blank")
+  }
 }
 
 
@@ -292,11 +287,11 @@ export default function Projects() {
 
                               {/* Enhanced Actions */}
                               <CardItem translateZ={50} className="flex gap-2 mt-auto">
-                                <button className="flex-1 bg-background/50 backdrop-blur-sm border border-border rounded-lg py-2 px-3 text-foreground/80 text-sm hover:bg-background/80 hover:border-border/50 hover:scale-105 transition-all duration-200 group-hover/card:hover:bg-gradient-to-r group-hover/card:hover:from-blue-500/10 group-hover/card:hover:to-purple-600/10 group-hover/card:hover:border-blue-500/30">
+                                <button onClick={() => linkToProject(project.github)} className="flex-1 bg-background/50 backdrop-blur-sm border border-border rounded-lg py-2 px-3 text-foreground/80 text-sm hover:bg-background/80 hover:border-border/50 hover:scale-105 transition-all duration-200 group-hover/card:hover:bg-gradient-to-r group-hover/card:hover:from-blue-500/10 group-hover/card:hover:to-purple-600/10 group-hover/card:hover:border-blue-500/30">
                                   <Github className="h-3 w-3 mr-1 inline" />
                                   Code
                                 </button>
-                                <button
+                                <button onClick={() => linkToProject(project.live)}
                                   className={`flex-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg py-2 px-3 text-white text-sm hover:shadow-lg hover:scale-105 transition-all duration-200 hover:shadow-blue-500/20`}
                                 >
                                   <ExternalLink className="h-3 w-3 mr-1 inline" />

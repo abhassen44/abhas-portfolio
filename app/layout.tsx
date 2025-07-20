@@ -7,10 +7,9 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Abhas Sen - Full Stack Developer & AI Enthusiast",
+  title: "portfolio of Abhas Sen",
   description:
     "Portfolio of Abhas Sen - Computer Science student at IIIT Guwahati specializing in full-stack development and AI technologies",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -20,6 +19,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/resume.png" type="image/png" />
+      </head>
       <body className={inter.className}>
         <ThemeProvider defaultTheme="dark" storageKey="abhas-portfolio-theme">
           {children}
