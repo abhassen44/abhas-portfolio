@@ -11,13 +11,6 @@ const contactInfo = [
     gradient: "from-primary/20 to-secondary/20",
   },
   {
-    icon: Phone,
-    label: "Phone",
-    value: "+91 9826505141",
-    href: "tel:+919826505141",
-    gradient: "from-secondary/20 to-accent/20",
-  },
-  {
     icon: MapPin,
     label: "Location",
     value: "Jabalpur, India",
@@ -42,14 +35,20 @@ const socialLinks = [
   {
     icon: ExternalLink,
     label: "LeetCode",
-    href: "https://leetcode.com/abhas",
+    href: "https://leetcode.com/abhassen44/",
     gradient: "from-secondary/20 to-accent/20",
   },
+  {
+    icon: ExternalLink,
+    label: "X.com",
+    href: "https://x.com/ASSASIN_IV",
+    gradient: "from-accent/20 to-primary/20",
+  }
 ]
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 px-6 bg-muted/20 relative overflow-hidden">
+    <section id="contact" className="py-20 px-6 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-accent/10" />
       <div className="absolute top-1/4 left-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
@@ -152,13 +151,13 @@ export default function Contact() {
                 <p className="text-foreground/80 mb-6">
                   Whether you have a project in mind or just want to connect, I'd love to hear from you!
                 </p>
-                <a
-                  href="mailto:abhassen44@gmail.com"
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-secondary rounded-full px-8 py-4 text-primary-foreground font-medium hover:shadow-2xl hover:shadow-primary/25 hover:scale-105 transition-all duration-300"
-                >
-                  <Send className="h-4 w-4" />
-                  Send Message
-                </a>
+               <a
+                      href="mailto:abhassen44@gmail.com"
+                      className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full px-8 py-4 text-white font-medium hover:shadow-2xl hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300"
+                    >
+                      <Send className="h-4 w-4" />
+                      Send Me
+                    </a>
               </div>
             </div>
           </div>

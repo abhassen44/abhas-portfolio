@@ -179,9 +179,12 @@ export default function Projects() {
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* Enhanced Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 bg-background/50 backdrop-blur-sm border border-border rounded-full px-4 py-2 mb-6 hover:bg-background/80 transition-all duration-300">
-            <div className="w-2 h-2 bg-gradient-to-r from-primary to-secondary rounded-full animate-pulse" />
-            <span className="text-sm text-muted-foreground font-medium">Featured Work</span>
+          <div className="inline-flex items-center gap-2 bg-background/50 backdrop-blur-sm border border-border rounded-full px-4 py-2 mb-6 relative group transition-all duration-300">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/80 to-purple-600/80 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <span className="relative flex items-center gap-2">
+              <div className="w-2 h-2 bg-gradient-to-r from-primary to-secondary rounded-full animate-pulse" />
+              <span className="text-sm text-muted-foreground font-medium">Featured Work</span>
+            </span>
           </div>
           <h2 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground via-muted-foreground to-foreground bg-clip-text text-transparent leading-tight">
             Selected Projects
@@ -229,8 +232,11 @@ export default function Projects() {
                               {/* Enhanced Header */}
                               <CardItem translateZ={40} className="flex items-start justify-between mb-4">
                                 <div className="flex items-center gap-3">
-                                  <CardItem translateZ={60} className="p-2 rounded-lg bg-background/50 backdrop-blur-sm group-hover/card:bg-background/80 group-hover/card:scale-110 transition-all duration-300">
-                                    <project.icon className="h-5 w-5 text-foreground" />
+                                  <CardItem translateZ={60} className="p-2 rounded-lg bg-background/50 backdrop-blur-sm relative group transition-all duration-300">
+                                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/80 to-purple-600/80 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                    <span className="relative flex items-center gap-2">
+                                      <project.icon className="h-5 w-5 text-foreground" />
+                                    </span>
                                   </CardItem>
                                   <CardItem translateZ={50} className="opacity-0 group-hover/card:opacity-100 transition-all duration-300 transform group-hover/card:translate-x-1">
                                     <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
@@ -259,10 +265,13 @@ export default function Projects() {
                                   {project.technologies.map((tech, idx) => (
                                     <span
                                       key={tech}
-                                      className="px-2 py-1 bg-background/50 backdrop-blur-sm rounded-md text-xs text-foreground/80 border border-border hover:bg-primary/10 hover:border-primary/30 hover:text-primary transition-all duration-200"
+                                      className="px-2 py-1 bg-background/50 backdrop-blur-sm rounded-md text-xs text-foreground/80 border border-border relative group transition-all duration-200"
                                       style={{ animationDelay: `${idx * 0.1}s` }}
                                     >
-                                      {tech}
+                                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/80 to-purple-600/80 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                      <span className="relative flex items-center gap-2">
+                                        {tech}
+                                      </span>
                                     </span>
                                   ))}
                                 </div>
@@ -283,12 +292,12 @@ export default function Projects() {
 
                               {/* Enhanced Actions */}
                               <CardItem translateZ={50} className="flex gap-2 mt-auto">
-                                <button className="flex-1 bg-background/50 backdrop-blur-sm border border-border rounded-lg py-2 px-3 text-foreground/80 text-sm hover:bg-background/80 hover:border-border/50 hover:scale-105 transition-all duration-200 group-hover/card:hover:bg-primary/10 group-hover/card:hover:border-primary/30">
+                                <button className="flex-1 bg-background/50 backdrop-blur-sm border border-border rounded-lg py-2 px-3 text-foreground/80 text-sm hover:bg-background/80 hover:border-border/50 hover:scale-105 transition-all duration-200 group-hover/card:hover:bg-gradient-to-r group-hover/card:hover:from-blue-500/10 group-hover/card:hover:to-purple-600/10 group-hover/card:hover:border-blue-500/30">
                                   <Github className="h-3 w-3 mr-1 inline" />
                                   Code
                                 </button>
                                 <button
-                                  className={`flex-1 bg-gradient-to-r ${project.accent} rounded-lg py-2 px-3 text-primary-foreground text-sm hover:shadow-lg hover:scale-105 transition-all duration-200 hover:shadow-primary/20`}
+                                  className={`flex-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg py-2 px-3 text-white text-sm hover:shadow-lg hover:scale-105 transition-all duration-200 hover:shadow-blue-500/20`}
                                 >
                                   <ExternalLink className="h-3 w-3 mr-1 inline" />
                                   Live
@@ -335,13 +344,20 @@ export default function Projects() {
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`w-8 h-1 rounded-full transition-all duration-300 hover:scale-110 ${
+              className={`w-8 h-1 rounded-full transition-all duration-300 relative group ${
                 index === currentIndex
                   ? "bg-gradient-to-r from-primary to-secondary shadow-lg shadow-primary/20"
-                  : "bg-foreground/20 hover:bg-foreground/40"
+                  : "bg-foreground/20"
               }`}
               aria-label={`Go to page ${index + 1}`}
-            />
+            >
+              {index !== currentIndex && (
+                <>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/80 to-purple-600/80 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <span className="relative flex items-center gap-2 w-full h-full" />
+                </>
+              )}
+            </button>
           ))}
         </div>
       </div>

@@ -3,6 +3,7 @@
 import { Code, Globe, Database, Brain, Wrench, Trophy, Sparkles } from "lucide-react"
 import { useState, useEffect } from "react"
 
+
 const skillCategories = [
   {
     title: "Languages",
@@ -15,22 +16,22 @@ const skillCategories = [
     title: "Web Technologies",
     icon: Globe,
     skills: ["React.js", "Next.js", "Express.js", "HTML", "CSS", "Tailwind CSS", "ShadCN"],
-    gradient: "from-secondary/20 to-accent/20",
-    accent: "from-secondary to-accent",
+    gradient: "from-secondary/20 to-primary/20",
+    accent: "from-secondary to-primary",
   },
   {
     title: "Database & Tools",
     icon: Database,
     skills: ["MongoDB Atlas", "Git", "GitHub", "VS Code", "Vercel", "Render"],
-    gradient: "from-accent/20 to-primary/20",
-    accent: "from-accent to-primary",
+    gradient: "from-primary/20 to-secondary/20",
+    accent: "from-primary to-secondary",
   },
   {
     title: "AI & Machine Learning",
     icon: Brain,
     skills: ["LangChain", "LangGraph", "RAG", "Fine-Tuning", "Neo4j", "Qdrant"],
-    gradient: "from-primary/20 to-accent/20",
-    accent: "from-primary to-accent",
+    gradient: "from-primary/20 to-secondary/20",
+    accent: "from-primary to-secondary",
   },
   {
     title: "Other Technologies",
@@ -57,12 +58,12 @@ export default function Skills() {
   }, [])
 
   return (
-    <section id="skills" className="py-20 px-6 relative overflow-hidden bg-gradient-to-br from-background via-background/95 to-background">
+    <section id="skills" className="py-20 px-6 relative overflow-hidden">
       {/* Dynamic Background Effects */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-primary/3 to-secondary/5" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-accent/10" />
         <div 
-          className="absolute w-96 h-96 bg-gradient-to-r from-accent/20 to-primary/20 rounded-full blur-3xl opacity-20 transition-all duration-1000 ease-out"
+          className="absolute w-96 h-96 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-3xl opacity-20 transition-all duration-1000 ease-out"
           style={{
             left: mousePosition.x - 192,
             top: mousePosition.y - 192,
@@ -77,7 +78,7 @@ export default function Skills() {
         {[...Array(20)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-gradient-to-r from-accent to-primary rounded-full opacity-30"
+            className="absolute w-1 h-1 bg-gradient-to-r from-primary to-secondary rounded-full opacity-30"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -93,10 +94,10 @@ export default function Skills() {
       <div className="container mx-auto max-w-6xl relative z-10">
         {/* Header with Magnetic Effect */}
         <div className={`text-center mb-20 transform transition-all duration-1000 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
-          <div className="inline-flex items-center gap-3 bg-background/80 backdrop-blur-xl border border-border/50 rounded-full px-6 py-3 mb-8 hover:bg-background/90 hover:border-border/70 transition-all duration-300 group">
+          <div className="inline-flex items-center gap-3 bg-background/50 backdrop-blur-xl border border-border rounded-full px-6 py-3 mb-8 hover:bg-background/80 hover:border-border/50 transition-all duration-300 group">
             <div className="relative">
-              <div className="w-2 h-2 bg-gradient-to-r from-accent to-primary rounded-full animate-pulse" />
-              <div className="absolute inset-0 w-2 h-2 bg-gradient-to-r from-accent to-primary rounded-full animate-ping opacity-75" />
+              <div className="w-2 h-2 bg-gradient-to-r from-primary to-secondary rounded-full animate-pulse" />
+              <div className="absolute inset-0 w-2 h-2 bg-gradient-to-r from-primary to-secondary rounded-full animate-ping opacity-75" />
             </div>
             <span className="text-sm text-muted-foreground font-medium tracking-wide group-hover:text-foreground/80 transition-colors duration-300">
               Technical Expertise
@@ -104,11 +105,11 @@ export default function Skills() {
           </div>
           
           <h2 className="text-6xl md:text-8xl font-black mb-8 leading-none">
-            <span className="bg-gradient-to-r from-foreground via-foreground/80 to-foreground bg-clip-text text-transparent hover:from-accent hover:via-primary hover:to-secondary transition-all duration-500">
+            <span className="bg-gradient-to-r from-foreground via-foreground/80 to-foreground bg-clip-text text-transparent ">
               Skills &
             </span>
             <br />
-            <span className="bg-gradient-to-r from-accent via-primary to-secondary bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
               Technologies
             </span>
           </h2>
@@ -128,9 +129,9 @@ export default function Skills() {
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="relative h-full bg-gradient-to-br from-background/60 to-background/30 backdrop-blur-xl border border-border/30 rounded-3xl p-8 hover:border-border/60 hover:shadow-2xl hover:shadow-accent/20 transition-all duration-500 overflow-hidden">
+              <div className="relative h-full bg-background/50 backdrop-blur-xl border border-border rounded-3xl p-8 hover:border-border/50 hover:shadow-2xl hover:shadow-primary/25 transition-all duration-500 overflow-hidden">
                 {/* Animated Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-primary/3 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/3 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
                 
                 {/* Shimmer Effect */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -140,11 +141,11 @@ export default function Skills() {
                 <div className="relative z-10">
                   {/* Header */}
                   <div className="flex items-center gap-4 mb-8">
-                    <div className="relative p-4 bg-background/60 backdrop-blur-sm rounded-2xl group-hover:bg-background/80 transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
+                    <div className="relative p-4 bg-background/50 backdrop-blur-sm rounded-2xl group-hover:bg-background/80 transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
                       <category.icon className="h-7 w-7 text-foreground" />
-                      <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-primary/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
-                    <h3 className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                       {category.title}
                     </h3>
                   </div>
@@ -154,7 +155,7 @@ export default function Skills() {
                     {category.skills.map((skill, skillIndex) => (
                       <span
                         key={skill}
-                        className="px-4 py-2 bg-background/60 backdrop-blur-sm border border-border/30 rounded-xl text-foreground/80 text-sm hover:bg-gradient-to-r hover:from-accent/20 hover:to-primary/20 hover:border-accent/50 hover:text-foreground hover:scale-105 transition-all duration-300 cursor-pointer"
+                        className="px-4 py-2 bg-background/50 backdrop-blur-sm border border-border rounded-xl text-foreground/80 text-sm hover:bg-gradient-to-r hover:from-primary/20 hover:to-secondary/20 hover:border-primary/50 hover:text-foreground hover:scale-105 transition-all duration-300 cursor-pointer"
                         style={{ 
                           animationDelay: `${skillIndex * 100}ms`,
                           animation: isLoaded ? 'fadeInUp 0.5s ease-out forwards' : 'none'
@@ -172,30 +173,30 @@ export default function Skills() {
 
         {/* Achievement Card with Enhanced Design */}
         <div className={`group transform transition-all duration-1000 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
-          <div className="relative bg-gradient-to-br from-background/70 to-background/40 backdrop-blur-xl border border-border/40 rounded-3xl p-12 hover:border-border/60 hover:shadow-2xl hover:shadow-accent/30 transition-all duration-500 overflow-hidden">
+          <div className="relative bg-background/50 backdrop-blur-xl border border-border rounded-3xl p-12 hover:border-border/50 hover:shadow-2xl hover:shadow-primary/25 transition-all duration-500 overflow-hidden">
             {/* Animated Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-primary/5 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
             
             {/* Floating Elements */}
             <div className="absolute top-8 right-8 opacity-20 group-hover:opacity-40 transition-opacity duration-500">
-              <div className="w-32 h-32 bg-gradient-to-r from-accent to-primary rounded-full blur-xl animate-pulse" />
+              <div className="w-32 h-32 bg-gradient-to-r from-primary to-secondary rounded-full blur-xl animate-pulse" />
             </div>
 
             <div className="relative z-10 text-center">
               <div className="flex items-center justify-center gap-4 mb-8">
-                <div className="relative p-6 bg-background/60 backdrop-blur-sm rounded-3xl group-hover:bg-background/80 transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
-                  <Trophy className="h-10 w-10 text-accent" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-primary/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative p-6 bg-background/50 backdrop-blur-sm rounded-3xl group-hover:bg-background/80 transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
+                  <Trophy className="h-10 w-10 text-primary" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                <Sparkles className="h-8 w-8 text-accent opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:rotate-12" />
+                <Sparkles className="h-8 w-8 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:rotate-12" />
               </div>
 
-              <h3 className="text-4xl font-black text-foreground mb-6 group-hover:text-accent transition-colors duration-300">
+              <h3 className="text-4xl font-black text-foreground mb-6 group-hover:text-primary transition-colors duration-300">
                 Problem Solving Excellence
               </h3>
 
               <div className="flex items-center justify-center gap-3 mb-6">
-                <span className="text-7xl font-black bg-gradient-to-r from-accent via-primary to-secondary bg-clip-text text-transparent">
+                <span className="text-7xl font-black bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
                   250+
                 </span>
                 <span className="text-muted-foreground text-xl max-w-xs">problems solved on LeetCode</span>
