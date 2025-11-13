@@ -112,7 +112,7 @@ export default function Hero() {
 
   const downloadResume = () => {
     const link = document.createElement('a')
-    link.href = 'https://drive.google.com/file/d/1bn8zSkUo-Yt8ZPjq2V4y6SaAJYoCUANE/view?usp=sharing'
+    link.href = 'https://drive.google.com/file/d/1E53IOR0PQYDpEFQpr4BuqdbNRqjb2CbB/view?usp=sharing'
     link.download = 'Abhas_Sen_Resume.pdf'
     document.body.appendChild(link)
     link.click()
